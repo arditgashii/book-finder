@@ -8,6 +8,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { RandomBookComponent } from './books/random-book/random-book.component';
 import { SearchBookComponent } from './books/search-book/search-book.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { BooksServiceService } from './books/books.service';
 
 @NgModule({
   declarations: [
@@ -20,9 +23,11 @@ import { SearchBookComponent } from './books/search-book/search-book.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [BooksServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
