@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../services/books.service';
 
 @Component({
-  selector: 'app-search-book',
-  templateUrl: './search-book.component.html',
-  styleUrls: ['./search-book.component.css']
+  selector: 'app-book-search',
+  templateUrl: './book-search.component.html',
+  styleUrls: ['./book-search.component.css']
 })
 export class SearchBookComponent implements OnInit {
   searchText: string = '';

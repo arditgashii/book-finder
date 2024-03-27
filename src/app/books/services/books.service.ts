@@ -11,7 +11,7 @@ export class BooksService {
 
   // Get API from Google Books to search a book
   searchBooks(searchText: string) {
-    return this.http.get(`https://www.googleapis.com/books/v1/volumes?q=search+terms`);
+    return this.http.get(`https://www.googleapis.com/books/v1/volumes?q=${searchText}`);
   }
 
   // Get API from Google Books to get random books(with random index)
