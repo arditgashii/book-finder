@@ -2,7 +2,7 @@
     <h1>Books</h1>
 
     <form>
-        <input type="text" [(ngModel)]="searchText">
+        <input type="text" [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}">
         <button type="button" (click)="search()">Search</button>
     </form>
 
@@ -13,6 +13,7 @@
                 <div>
                     <p>Title: {{ book.volumeInfo.title }}</p>
                     <p>Authors: {{ book.volumeInfo.authors }}</p>
+                    <img *ngIf="book.volumeInfo.imageLinks" [src]="book.volumeInfo.imageLinks.thumbnail" alt="Book Cover">
                 </div>
             </li>
         </ul>
