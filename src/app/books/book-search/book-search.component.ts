@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../services/books.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-search',
@@ -10,7 +11,8 @@ export class SearchBookComponent implements OnInit {
   searchText: string = '';
   books: any[] = [];
 
-  constructor(private booksService: BooksService) {}
+  constructor(private booksService: BooksService,
+              private router: Router) {}
 
   // Display random books in home page
   ngOnInit(): void {
@@ -34,5 +36,9 @@ export class SearchBookComponent implements OnInit {
       .subscribe((data: any) => {
         this.books = data.items || [];
       });
+  }
+
+  showDetails(book: any) {
+    this.router.navigate(['/book-details', book.id]); // Assuming 'id' is the unique identifier for the book
   }
 }
