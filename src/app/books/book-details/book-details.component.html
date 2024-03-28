@@ -1,8 +1,30 @@
-<div *ngIf="bookDetails">
-    <h2 class="text-center">{{ bookDetails.title }}</h2>
-    <p><strong>Publication Date:</strong> {{ bookDetails.publishedDate }}</p>
-    <p><strong>Publisher:</strong> {{ bookDetails.publisher }}</p>
-    <p><strong>ISBN:</strong> {{ bookDetails.industryIdentifiers[0].identifier }}</p>
-    <p><strong>Summary:</strong> {{ bookDetails.description }}</p>
-  </div>
-  
+<div *ngIf="bookDetails" class="container mt-3">
+    <h2 class="text-center text-primary mb-5">{{ bookDetails.title }}</h2>
+    <div class="row">
+      <div class="col-lg-6"> <!-- Adjusted class for responsiveness -->
+        <div class="book-image-container h-100 d-flex align-items-center justify-content-center position-relative">
+          <ng-container *ngIf="bookDetails.imageLinks">
+            <img [src]="bookDetails.imageLinks.thumbnail" alt="Book Cover" class="img-fluid rounded">
+          </ng-container>
+          <ng-container *ngIf="!bookDetails.imageLinks">
+            <p class="text-center fs-5 text">No image available for this book</p>
+          </ng-container>
+        </div>
+      </div>
+      <div class="col-lg-6 mb-4"> <!-- Adjusted class for responsiveness -->
+        <div class="card h-100">
+            <div class="card-body">
+                <img src="../../assets//images/library.jpg" class="card-image" alt="Background Image">
+                <h5 class="card-title fw-bold fs-5 mb-2">Description: </h5>
+                <p class="card-text summary fs-6">{{ bookDetails.description ? bookDetails.description : 'No summary available for this book' }}</p>
+                <div class="mt-3">
+                        <li><span class="fw-bold fs-5">Publication Date: </span> <span class="fs-5">{{ bookDetails.publishedDate ? bookDetails.publishedDate : 'Publication date not available' }}</span></li>
+                        <li><span class="fw-bold fs-5">Publisher: </span> <span class="fs-5">{{ bookDetails.publisher ? bookDetails.publisher : 'Publisher information not available' }}</span></li>
+                        <li><span class="fw-bold fs-5">ISBN: </span> <span class="fs-5">{{ bookDetails.industryIdentifiers && bookDetails.industryIdentifiers.length > 0 ? bookDetails.industryIdentifiers[0].identifier : 'ISBN not available' }}</span></li>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+</div>
