@@ -1,19 +1,19 @@
 <div class="container">
-    <form class="search-container mb-3">
+    <form class="search-container">
         <input type="text" 
         [(ngModel)]="searchText" 
         [ngModelOptions]="{standalone: true}" 
-        class="search-input form-control"
+        class="search-input"
         placeholder="Search a book...">
-        <button type="button" (click)="search()" class="search-button btn btn-primary">Search</button>
+        <button type="button" (click)="search()" class="search-button">Search</button>
     </form>
 
     <div class="search-results">
         <div class="book-card" *ngFor="let book of books">
-            <img *ngIf="book.volumeInfo.imageLinks" [src]="book.volumeInfo.imageLinks.thumbnail" alt="Book Cover" class="img-fluid">
+            <div class="card-image" *ngIf="book.volumeInfo.imageLinks" [style.background-image]="'url(' + book.volumeInfo.imageLinks.thumbnail + ')'"></div>
             <div class="book-card-content">
                 <p class="book-title">Title: {{ book.volumeInfo.title }}</p>
-                <p>Authors: {{ book.volumeInfo.authors }}</p>
+                <p class="book-authors">Authors: {{ book.volumeInfo.authors }}</p>
                 <button (click)="showDetails(book)">Details</button>
             </div>
         </div>

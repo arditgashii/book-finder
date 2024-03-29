@@ -1,0 +1,35 @@
+.book-column {
+    max-height: 400px;
+}
+
+.img-fluid  {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.shadow {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 20%;
+}
+
+.card-body {
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.card-subtitle {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
