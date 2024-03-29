@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { SearchBookComponent } from './books/book-search/book-search.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,7 +13,6 @@ import { BookDetailsComponent } from './books/book-details/book-details.componen
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     AboutUsComponent,
     SearchBookComponent,
     BookDetailsComponent

@@ -16,7 +16,7 @@
             <div class="card-body">
                 <img src="../../assets//images/library.jpg" class="card-image" alt="Background Image">
                 <h5 class="card-title fw-bold fs-5 mb-2">Description: </h5>
-                <p class="card-text summary fs-6">{{ bookDetails.description ? bookDetails.description : 'No summary available for this book' }}</p>
+                <p class="card-text summary fs-6" [innerHTML]="bookDetails.description ? bookDetails.description : 'No summary available for this book'"></p>
                 <div class="mt-3">
                         <li><span class="fw-bold fs-5">Publication Date: </span> <span class="fs-5">{{ bookDetails.publishedDate ? bookDetails.publishedDate : 'Publication date not available' }}</span></li>
                         <li><span class="fw-bold fs-5">Publisher: </span> <span class="fs-5">{{ bookDetails.publisher ? bookDetails.publisher : 'Publisher information not available' }}</span></li>
