@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { BooksService } from '../services/books.service';
 import { Router } from '@angular/router';
+import { BooksService } from './services/books.service';
 
 @Component({
-  selector: 'app-book-search',
-  templateUrl: './book-search.component.html',
-  styleUrls: ['./book-search.component.css']
+  selector: 'app-books',
+  templateUrl: './books.component.html',
+  styleUrls: ['./books.component.css']
 })
-export class SearchBookComponent implements OnInit {
+export class BooksComponent implements OnInit {
   searchText: string = '';
   books: any[] = [];
 
