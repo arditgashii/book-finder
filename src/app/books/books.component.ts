@@ -36,6 +36,8 @@ export class BooksComponent implements OnInit {
       .subscribe((data: any) => {
         this.books = data.items || [];
       });
+    // Update the URL with the searched text
+    this.router.navigate([], { queryParams: { search: this.searchText } });
   }
 
   showDetails(book: any) {

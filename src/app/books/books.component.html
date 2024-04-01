@@ -8,11 +8,17 @@
         <button type="button" (click)="search()" class="search-button">Search</button>
     </form>
 
+    <!-- Move the <p> element outside of the search-results div -->
+    <p *ngIf="searchText != ''" class="text-center mt-3 fs-6"><strong>Search result for:</strong> {{ searchText }}</p>
+
     <div class="search-results">
         <div class="book-card" *ngFor="let book of books">
-            <div class="card-image" *ngIf="book.volumeInfo.imageLinks" [style.background-image]="'url(' + book.volumeInfo.imageLinks.thumbnail + ')'"></div>
+            <div class="card-image">
+                <img *ngIf="book.volumeInfo.imageLinks" [src]="book.volumeInfo.imageLinks.thumbnail" class="card-image" alt="Book Image">
+                <img *ngIf="!book.volumeInfo.imageLinks" src="../../assets/images/library.jpg" class="card-image" alt="Background Image">
+            </div>
             <div class="book-card-content">
-                <p class="book-title">Title: {{ book.volumeInfo.title }}</p>
+                    <p class="book-title">Title: {{ book.volumeInfo.title }} </p>
                 <p class="book-authors">Authors: {{ book.volumeInfo.authors }}</p>
                 <button (click)="showDetails(book)">Details</button>
             </div>

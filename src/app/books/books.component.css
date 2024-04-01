@@ -142,7 +142,8 @@
   .details-button:hover {
     background-color: #0056b3;
   }
-  
+
+
   
   @media (max-width: 575.98px) {
     .search-results {
@@ -187,6 +188,9 @@
         padding: 0.375rem 0.75rem;
     }
   }
+
+
+  
   
   @media (min-width: 576px) and (max-width: 991.98px) {
   .book-card {
