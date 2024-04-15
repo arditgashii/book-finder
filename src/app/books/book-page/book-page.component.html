@@ -1,0 +1,29 @@
+<div class="container">
+    <form class="search-container mb-4">
+        <input type="text" 
+        [(ngModel)]="searchText" 
+        [ngModelOptions]="{standalone: true}" 
+        class="search-input"
+        placeholder="Search a book...">
+        <button type="button" (click)="search()" class="search-button">Search</button>
+    </form>
+
+    <div class="search-results">
+        <div class="book-card" *ngFor="let book of books">
+            <div class="card-image">
+                <img *ngIf="book.volumeInfo.imageLinks" [src]="book.volumeInfo.imageLinks.thumbnail" class="card-image" alt="Book Image">
+                <img *ngIf="!book.volumeInfo.imageLinks" src="../../../assets/images/no-image.png" class="card-image" alt="Background Image">
+            </div>
+            <div class="book-card-content">
+                <p class="book-title">Title: {{ book.volumeInfo.title }} </p>
+                <p class="book-authors">Authors: {{ book.volumeInfo.authors }}</p>
+                <button (click)="showDetails(book)">Details</button>
+            </div>
+        </div>
+    </div>
+    <div class="pagination" *ngIf="showPagination">
+        <button class="page-link" (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 0">Previous</button>
+        <span class="current-page">Page {{ currentPage + 1 }}</span>
+        <button type="button" class="page-link" (click)="onPageChange(currentPage + 1)">Next</button>
+    </div>
+</div>
