@@ -21,7 +21,7 @@ export class BookPageComponent implements OnInit {
   ngOnInit(): void {
     // Scroll to top when the component initializes
     this.scrollToTop();
-    
+
     // Check if there is a query parameter 'page' in the URL
     this.route.queryParams.subscribe(params => {
       const page = params['page'];
@@ -61,7 +61,7 @@ export class BookPageComponent implements OnInit {
         this.showPagination = true; // Show pagination after search
       });
     // Update the URL with the searched text and page number
-    this.router.navigate([], { 
+    this.router.navigate([], {
       relativeTo: this.route,
       queryParams: { search: this.searchText, page: this.currentPage }
     });

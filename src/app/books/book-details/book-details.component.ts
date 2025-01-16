@@ -22,6 +22,17 @@ export class BookDetailsComponent implements OnInit {
     });
   }
 
+  getLimitedDescription(): string {
+    if (this.bookDetails?.description) {
+      // Kufizimi i përshkrimit në një gjatësi të caktuar (p.sh. 300 karaktere)
+      const maxLength = 300;
+      const description = this.bookDetails.description;
+      return description.length > maxLength ? description.substring(0, maxLength) + '...' : description;
+    }
+    return 'No summary available for this book';
+  }
+
+
   fetchBookDetails() {
     this.booksService.getBookDetails(this.bookId)
       .subscribe((data: any) => {

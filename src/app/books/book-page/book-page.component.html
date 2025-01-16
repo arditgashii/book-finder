@@ -1,12 +1,13 @@
+<form class="search-container mb-4">
+  <input type="text"
+  [(ngModel)]="searchText"
+  [ngModelOptions]="{standalone: true}"
+  class="search-input"
+  placeholder="Search a book...">
+  <button type="button" (click)="search()" class="search-button">Search</button>
+</form>
 <div class="container">
-    <form class="search-container mb-4">
-        <input type="text" 
-        [(ngModel)]="searchText" 
-        [ngModelOptions]="{standalone: true}" 
-        class="search-input"
-        placeholder="Search a book...">
-        <button type="button" (click)="search()" class="search-button">Search</button>
-    </form>
+
 
     <div class="search-results">
         <div class="book-card" *ngFor="let book of books">
